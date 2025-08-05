@@ -20,6 +20,7 @@ data "aws_vpc" "default" {
 resource "aws_instance" "blog" {
   ami           = data.aws_ami.app_ami.id
   instance_type = var.instance_type
+  key_name      = "user1"
 
 vpc_security_group_ids = [aws_security_group.blog.id]
 
